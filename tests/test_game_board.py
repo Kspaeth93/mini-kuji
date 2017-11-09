@@ -39,7 +39,7 @@ class TestGameBoardTest:
         game_board_fixture.game_board_details = game_board_details
         return game_board_fixture
 
-    def test_get_game_board_data_by_space(self, game_board_fixture):
+    def test_get_game_board_details_by_space(self, game_board_fixture):
         # Should return None since this is an invalid game board space
         game_board_space_details = game_board_fixture.get_game_board_details_by_space(0)
         assert game_board_space_details is None
@@ -53,7 +53,7 @@ class TestGameBoardTest:
         game_board_space_details = game_board_fixture.get_game_board_details_by_space(10)
         assert game_board_space_details is None
 
-    def test_set_game_board_data_by_space(self):
+    def test_set_game_board_details_by_space(self):
         x = 1 # TODO: Write Test
         assert x == 0
 
