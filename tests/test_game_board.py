@@ -40,17 +40,20 @@ class TestGameBoardTest:
         return game_board_fixture
 
     def test_get_game_board_details_by_space(self, game_board_fixture):
+        
         # Should return None since this is an invalid game board space
-        game_board_space_details = game_board_fixture.get_game_board_details_by_space(0)
+        game_board_space_details = game_board_fixture.get_game_board_details_by_space(-1)
         assert game_board_space_details is None
-        game_board_space_details = game_board_fixture.get_game_board_details_by_space(3)
+        
+        game_board_space_details = game_board_fixture.get_game_board_details_by_space(0)
+        assert game_board_space_details == "P"
+        game_board_space_details = game_board_fixture.get_game_board_details_by_space(2)
         assert game_board_space_details == "S"
         game_board_space_details = game_board_fixture.get_game_board_details_by_space(6)
         assert game_board_space_details == "NP"
-        game_board_space_details = game_board_fixture.get_game_board_details_by_space(9)
-        assert game_board_space_details == "P"
+        
         # Should return None since this is an invalid game board space
-        game_board_space_details = game_board_fixture.get_game_board_details_by_space(10)
+        game_board_space_details = game_board_fixture.get_game_board_details_by_space(9)
         assert game_board_space_details is None
 
     def test_set_game_board_details_by_space(self):

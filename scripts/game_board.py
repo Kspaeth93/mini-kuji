@@ -98,12 +98,12 @@ class GameBoard:
 
     # TODO: Add Description
     def get_game_board_details_by_space(self, space):
-        if space is None or space < 1 or space > (self.game_board_dimension ** 2):
+        if space is None or space < 0 or space > ((self.game_board_dimension ** 2) - 1):
             print("Invalid game board space.")
         else:
-            game_board_dimension = math.ceil(space / self.game_board_dimension)
-            game_board_space = space - ((game_board_dimension - 1) * self.game_board_dimension)
-            return self.game_board_details[game_board_dimension - 1][game_board_space - 1]
+            current_game_board_row = math.floor(space / self.game_board_dimension)
+            current_game_board_column = space - (current_game_board_row * self.game_board_dimension)
+            return self.game_board_details[current_game_board_row ][current_game_board_column]
 
     # TODO: Add Description
     def set_game_board_details_by_space(self, space, picked):
